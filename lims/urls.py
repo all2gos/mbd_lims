@@ -20,7 +20,11 @@ from projekty.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+	path('home/', welcome, name='Welcome'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 	path('projekty/', include('projekty.urls')),
     path('submit_project/', submit_project, name='submit_project'),
+    path('home_user/',overall2, name='home_user')
 
 ]

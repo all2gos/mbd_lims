@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'test_style.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+<h1>Wykaz projektów</h1>
+Dzień dobry [użytkownik]
+
+Co chcesz zrobic?
+
+<br>
+
+<a href="{% url 'home_user' %}"><button>Lista projektów</button></a>
+
+</body>
+</html>
+
