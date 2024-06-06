@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'test_style.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+<h1>Strona projektu {{project.project_name}}
+</h1>
+
+<h3>
+Kierownik projektu: {{project.team_leader}} <br>
+Opis projektu: {{project.description}}
+</h3>
+
+
+</body>
+</html>
+
