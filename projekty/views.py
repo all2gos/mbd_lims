@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages  
@@ -17,12 +18,13 @@ def project_home(request):
 	c = projects.objects.count()
 	l = projects.objects.all()
 	
-	return render(request, 'project_home.html',{'c':c, 'l':l})
+	return render(request, 'projects.html',{'c':c, 'l':l})
 
-def overall(request):
+def add_project(request):
 	return render(request, 'add_project.html')
 
-def overall2(request):
+@login_required
+def home_user(request):
 	return render(request, 'home_user.html')
 
 def submit_project(request):

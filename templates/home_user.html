@@ -11,13 +11,17 @@
 </head>
 <body>
 <h1>Wykaz projektów</h1>
-Dzień dobry [użytkownik]
+Dzień dobry {{ user.first_name }}
 
 Co chcesz zrobic?
 
 <br>
 
-<a href="{% url 'home_user' %}"><button>Lista projektów</button></a>
+<a href="{% url 'projects' %}"><button>Wyświetl listę projektów</button></a>
+
+<br>
+
+<a href="{% url 'logout' %}"><button>Wyloguj</button></a>
 
 </body>
 </html>

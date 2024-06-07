@@ -23,8 +23,9 @@ urlpatterns = [
 	path('home/', welcome, name='Welcome'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
-	path('projekty/', include('projekty.urls')),
+    path('projects_home/', project_home, name='projects'),
     path('submit_project/', submit_project, name='submit_project'),
-    path('home_user/',overall2, name='home_user')
+    path('home_user/',home_user, name='home_user'),
+	path('projekty/', include('projekty.urls')),
 
 ]
