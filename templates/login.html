@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html lang='en'>
 
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 {% if messages %}
-    <ul class="messages">
+    <ul class="error-message">
         {% for message in messages %}
             <li>{{ message }}</li>
         {% endfor %}
@@ -15,7 +17,7 @@
     {{ form.as_p }}
 
     <br><br><br>
-    <br><button type="submit">Zaloguj</button>
+    <br><button type="submit", class="button-modern">Zaloguj</button>
 </form>
 
 </html>

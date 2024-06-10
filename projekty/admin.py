@@ -4,13 +4,11 @@ from projekty.models import *
 
 # Register your models here.
 
-admin.site.register(Employes)
-admin.site.register(users)
-admin.site.register(personal_inf)
-admin.site.register(laboratories)
-admin.site.register(projects)
-admin.site.register(experiments)
-admin.site.register(metody)
-admin.site.register(key_words)
-admin.site.register(patients)
-admin.site.register(diagnosis)
+admin.site.register(Employee)
+admin.site.register(Laboratory)
+admin.site.register(Project)
+admin.site.register(Experiments)
+admin.site.register(Method)
+admin.site.register(KeyWord)
+admin.site.register(Patient)
+admin.site.register(Diagnosis)

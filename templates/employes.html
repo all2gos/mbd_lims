@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product List</title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+    <h1>Lista pracowników</h1>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Imię i Nazwisko</th>
+                <th>E-Mail</th>
+                <th>Stanowisko</th>
+                <th>Pokój</th>
+                <th>Projekty</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in l %}
+                <tr>
+                    <td>{{ obj.full_name }}</td>
+                    <td>{{ obj.mail }}</td>
+                    <td>{{ obj.position }}</td>
+                    <td>{{ obj.room_number }}</td>
+                    <td>
+                        {% for project in obj.team.all %}
+                            {{ project.project_name }}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

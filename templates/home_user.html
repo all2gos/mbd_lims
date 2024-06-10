@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title> LIMS </title>
-<link rel="stylesheet" href="{% static 'test_style.css' %}">
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
 <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 
 </head>
 <body>
+<div class="centering">
 <h1>Wykaz projektów</h1>
 Dzień dobry {{ user.first_name }}
 
@@ -17,12 +18,18 @@ Co chcesz zrobic?
 
 <br>
 
-<a href="{% url 'projects' %}"><button>Wyświetl listę projektów</button></a>
+<a href="{% url 'projects' %}"><button, class="button-modern">Wyświetl listę projektów</button></a>
 
-<br>
+<br><br>
+<a href="{% url 'employes' %}"><button, class="button-modern">Wyświetl listę pracowników</button></a>
 
-<a href="{% url 'logout' %}"><button>Wyloguj</button></a>
+<br><br>
+<a href="{% url 'add_medical_test' %}"><button, class="button-modern">Wprowadź wyniki badania</button></a>
 
+<br><br>
+
+<a href="{% url 'logout' %}"><button, class="button-modern">Wyloguj</button></a>
+</div>
 </body>
 </html>
 

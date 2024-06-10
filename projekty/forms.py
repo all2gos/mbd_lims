@@ -1,9 +1,9 @@
 from django import forms
-from .models import projects
+from .models import Project
 
 class ProjectsForm(forms.ModelForm):
     class Meta:
-        model = projects
+        model = Project
         fields = ['project_name','team_leader','description']
 
 class UserLoginForm(forms.Form):

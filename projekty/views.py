@@ -9,24 +9,36 @@ from .forms import *
 
 def welcome(request):
     return render(request, 'home.html')
-	
+
+@login_required
 def project_detail(request, project_id):
-    project = projects.objects.get(id=project_id)
+    project = Project.objects.get(id=project_id)
     return render(request, 'project_detail.html', {'project': project})
+
+@login_required
+def employes_home(request):
+	l = Employee.objects.all()
 	
-def project_home(request):
-	c = projects.objects.count()
-	l = projects.objects.all()
+	return render(request, 'employes.html',{'l':l})
+
+@login_required
+def projects_home(request):
+	c = Project.objects.count()
+	l = Project.objects.all()
 	
-	return render(request, 'projects.html',{'c':c, 'l':l})
+	return render(request, 'projects_home.html',{'c':c, 'l':l})
 
 def add_project(request):
 	return render(request, 'add_project.html')
+
+def add_medical_test(request):
+	return render(request, 'add_medical_test.html')
 
 @login_required
 def home_user(request):
 	return render(request, 'home_user.html')
 
+@login_required
 def submit_project(request):
 	form = ProjectsForm(request.POST)
 
@@ -36,6 +48,7 @@ def submit_project(request):
 	else:
 		form = ProjectsForm()
 	return render(request, 'submit_project.html', {'form':form})
+
 
 def login_view(request):
     if request.method == 'POST':

@@ -1,0 +1,91 @@
+body {
+    background-color: lightblue;
+    font-family: verdana;
+  }
+
+.error-message {
+    color: red;
+}
+
+h1 {
+  color: #3e26ac; /* Wybierz kolor według preferencji */
+}
+
+/* Centering content */
+.centering {
+  text-align: center;
+  width: 100%;
+  max-width: 1920px; /* Adjust as needed */
+  padding: 20px;
+}
+
+/* more fancy button look */
+.button-modern {
+  background-color: #3498db; 
+  border: none;
+  border-radius: 5px; 
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s; 
+}
+
+.button-modern:hover {
+  background-color: #2980b9; /* Darker shade on hover */
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.button-modern:active {
+  background-color: #1a5a83; /* Even darker shade on click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+  transform: translateY(2px); /* Slight move down on click */
+}
+
+/* fancy tables are here */
+.fancy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table-modern thead tr {
+  background-color: #3498db; /* Primary color */
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-modern th, .table-modern td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.table-modern tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.table-modern tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table-modern tbody tr:last-of-type {
+  border-bottom: 2px solid #3498db; /* Primary color */
+}
+
+.table-modern tbody tr:hover {
+  background-color: #3e26ac !important; /* Slightly lighter shade on hover for all rows */
+  cursor: pointer;
+  color: #f1f4f7; /* Change text color on hover */
+  font-weight: bold; /* Make text bold on hover */
+}
+

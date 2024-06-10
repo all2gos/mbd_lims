@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+<h3>
+    Raport z przeprowadzenia badania
+</h3>
+
+<form action="/submit_project/" method="post">
+{% csrf_token %}
+
+<label for="project_name">Nazwa projektu:</label><br>
+<input type="text" id="project_name" name="project_name"><br>
+
+<label for="team_leader">Kierownik projektu:</label><br>
+<input type="text" id="team_leader" name="team_leader"><br>
+
+<label for="description">Opis projektu:</label><br>
+<input type="text" id="description" name="description"><br>
+
+<input type="submit" value="Dodaj projekt">
+</form>
+</body>
+</html>
