@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+<header>
+    <a href="{% url 'home_user' %}", class="site-name">LIMS</a>
+</header>
+<div class="centering">
+<br>
+<h1>Kim jesteśmy?</h1>
+
+Nasz medyczny ośrodek badawczy jest wiodącą placówką w dziedzinie nowoczesnych badań klinicznych i biomedycznych. Specjalizujemy się w innowacyjnych metodach leczenia i diagnostyki, dążąc do poprawy jakości życia pacjentów. Nasz zespół ekspertów łączy wiedzę i pasję, aby dostarczać najnowsze rozwiązania medyczne. Jesteśmy zaangażowani w rozwój nauki i współpracę z międzynarodowymi instytucjami badawczymi
+<br>
+<br><a href="{% url 'about_us' %}"><button, class='button-modern'>Nasze projekty badawcze</button></a>
+<br><a href="{% url 'about_us' %}"><button, class='button-modern'>Zarejestruj się na badanie</button></a>
+<br><a href="{% url 'about_us' %}"><button, class='button-modern'>Kariera</button></a>
+
+
+
+
+<br>
+To do lista:
+<br>
+1. zaimplementować funkcjonalność dodawania badania
+<br>
+2. zaimplementówać funkcjonalność dodawania pacjenta
+<br>
+3. ulepszyć relacje w bazie danych
+</div>
+
+<footer>
+Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+</footer>
+
+</body>
+</html>

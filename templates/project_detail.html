@@ -10,6 +10,9 @@
 
 </head>
 <body>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
 <h1>Strona projektu {{project.project_name}}
 </h1>
 
@@ -20,5 +23,8 @@ Opis projektu: {{project.description}}
 
 
 </body>
+<footer>
+    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
 </html>
 

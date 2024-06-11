@@ -3,9 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages  
+from django.contrib.auth.decorators import user_passes_test
+
 from .models import *
 from .forms import *
-# Create your views here.
+
+def check_is_kierownik(user):
+    return user.groups.filter(name__in=['Admin', 'Kierownik']).exists()
 
 def welcome(request):
     return render(request, 'home.html')
@@ -22,15 +26,23 @@ def employes_home(request):
 	return render(request, 'employes.html',{'l':l})
 
 @login_required
+def badania(request):
+	l = Experiment.objects.all()
+	
+	return render(request, 'badania.html',{'l':l})
+
+@login_required
 def projects_home(request):
 	c = Project.objects.count()
 	l = Project.objects.all()
 	
 	return render(request, 'projects_home.html',{'c':c, 'l':l})
 
+@user_passes_test(check_is_kierownik)
 def add_project(request):
 	return render(request, 'add_project.html')
 
+@login_required
 def add_medical_test(request):
 	return render(request, 'add_medical_test.html')
 
@@ -49,6 +61,21 @@ def submit_project(request):
 		form = ProjectsForm()
 	return render(request, 'submit_project.html', {'form':form})
 
+@login_required
+def submit_medical_test(request):
+    if request.method == 'POST':
+        form = ExperimentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('projects')
+    else:
+        form = ExperimentForm()
+        
+    return render(request, 'submit_project.html', {'form': form})
+
+
+def about_us(request):
+      return render(request, 'about_us.html')
 
 def login_view(request):
     if request.method == 'POST':

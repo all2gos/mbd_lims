@@ -7,7 +7,7 @@ from projekty.models import *
 admin.site.register(Employee)
 admin.site.register(Laboratory)
 admin.site.register(Project)
-admin.site.register(Experiments)
+admin.site.register(Experiment)
 admin.site.register(Method)
 admin.site.register(KeyWord)
 admin.site.register(Patient)

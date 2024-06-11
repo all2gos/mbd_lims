@@ -5,7 +5,14 @@ from django.db import models
 class Project(models.Model):
    project_name=models.CharField(max_length=30)
    team_leader=models.CharField(max_length=30)
-   description=models.CharField(max_length=400)
+   description=models.CharField(max_length=400, null=True)
+
+   class Meta:
+      permissions = [
+      ('view_projects', 'Can view projects'),
+      ('add_projects', 'Can add projects'),
+      ('change_projects', 'Can change projects'),
+        ]
 
 class Employee(models.Model):
    full_name=models.CharField(max_length=40)
@@ -30,12 +37,20 @@ class Method(models.Model):
    name=models.CharField(max_length=40)
    description=models.CharField(max_length=40)
 
-class Experiments (models.Model):
+#pojedyncze badanie medyczne
+class Experiment(models.Model):
    worker= models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True)
-   patients = models.ForeignKey(Patient, on_delete=models.SET_NULL, null=True)
-   experiment_name=models.CharField(max_length=50)
-   description=models.CharField(max_length = 50)
+   patient = models.ForeignKey(Patient, on_delete=models.SET_NULL, null=True)
+   experiment_name=models.CharField(max_length=50, null=True)
+   description=models.CharField(max_length = 500, null=True)
    method=models.ForeignKey(Method, on_delete=models.SET_NULL, null=True)
+
+   class Meta:
+      permissions = [
+         ('view_experiments', 'Can view experiments'),
+         ('add_experiments', 'Can add experiments'),
+         ('change_experiments', 'Can change experiments'),
+      ]
 
 class Laboratory(models.Model):
    lab_name=models.CharField(max_length=40)

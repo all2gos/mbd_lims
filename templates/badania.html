@@ -17,31 +17,28 @@
     <header>
         <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
     </header>
-    <h1>Lista pracowników</h1>
+    <br>
+    <h1>Lista przeprowadzonych badań</h1>
     <table class="table-modern">
         <thead>
             <tr>
-                <th>Imię i Nazwisko</th>
-                <th>E-Mail</th>
-                <th>Stanowisko</th>
-                <th>Pokój</th>
-                <th>Projekty</th>
+                <th>Pracownik</th>
+                <th>Pacjent</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Metoda</th>
 
             </tr>
         </thead>
         <tbody>
             {% for obj in l %}
                 <tr>
-                    <td>{{ obj.full_name }}</td>
-                    <td>{{ obj.mail }}</td>
-                    <td>{{ obj.position }}</td>
-                    <td>{{ obj.room_number }}</td>
-                    <td>
-                        {% for project in obj.team.all %}
-                            {{ project.project_name }}
-                            {% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
+                    <td>{{ obj.worker.full_name }}</td>
+                    <td>{{ obj.patient.full_name }}</td>
+                    <td>{{ obj.experiment_name }}</td>
+                    <td>{{ obj.description }}</td>
+                    <td>{{ obj.method.name }}</td>
+
 
 
                 </tr>

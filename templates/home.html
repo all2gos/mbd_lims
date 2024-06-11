@@ -10,9 +10,17 @@
 
 </head>
 <body>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
+<div class="centering">
+<h1>Witamy na stronie domowej naszej medycznej bazy danych</h1>
+<br><a href="{% url 'login' %}"><button, class='button-modern'>Informacje związane z realizacją projektuy</button></a>
+<br><a href="{% url 'login' %}"><button, class='button-modern'>Zaloguj się</button></a>
+<br><a href="{% url 'login' %}"><button, class='button-modern'>Zobacz swoje wyniki badań</button></a>
+<br><a href="{% url 'about_us' %}"><button, class='button-modern'>Dowiedz się o nas więcej</button></a>
 
-Siemanko, witamy w naszej bazie. Poniżej znajdziesz przycisk, żeby się zalogować
-<a href="{% url 'login' %}"><button>Zaloguj się</button></a>
+
 
 
 <br>
@@ -23,6 +31,9 @@ To do lista:
 2. zaimplementówać funkcjonalność dodawania pacjenta
 <br>
 3. ulepszyć relacje w bazie danych
-
+</div>
+<footer>
+    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
 </body>
 </html>

@@ -28,6 +28,9 @@ urlpatterns = [
     path('home_user/',home_user, name='home_user'),
 	path('projekty/', include('projekty.urls')),
     path('employes/',employes_home, name='employes'),
-    path('add_medical_test/',add_medical_test, name='add_medical_test')
+    path('add_medical_test/',add_medical_test, name='add_medical_test'),
+    path('about_us', about_us, name='about_us'),
+    path('add_project/', add_project, name='add_project'),
+    path('badania/',badania, name='badania')
 
 ]

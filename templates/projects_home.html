@@ -10,6 +10,10 @@
 
 </head>
 <body>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
+<br>
 <h1>Wykaz projektów
 </h1>
 Liczba projektów: {{c}} <br>
@@ -21,8 +25,11 @@ Nazwy projektów: <br>
 {%endfor %}
 
 <br><br><br><br>
-<a href="{% url 'add_project' %}"><button>Dodaj nowy projekt</button></a>
+<a href="{% url 'add_project' %}"><button, class="button-modern">Dodaj nowy projekt</button></a>
 
 </body>
+<footer>
+    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
 </html>
 

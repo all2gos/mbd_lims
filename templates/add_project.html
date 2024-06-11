@@ -5,14 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title> LIMS </title>
-<link rel="stylesheet" href="{% static 'test_style.css' %}">
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
 <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 
 </head>
 <body>
-<h3>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
+<br>
+<h1>
     Formularz wpisania nowego projektu
-</h3>
+</h1>
 
 <form action="/submit_project/" method="post">
 {% csrf_token %}
@@ -26,8 +30,11 @@
 <label for="description">Opis projektu:</label><br>
 <input type="text" id="description" name="description"><br>
 
-<input type="submit" value="Dodaj projekt">
+<input type="submit" value="Dodaj projekt", class="button-modern">
 </form>
+<footer>
+    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
 </body>
 </html>
 

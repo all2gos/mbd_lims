@@ -10,23 +10,39 @@
 
 </head>
 <body>
-<h3>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
+
+
+<br>
+<h1>
     Raport z przeprowadzenia badania
-</h3>
+</h1>
 
 <form action="/submit_project/" method="post">
-{% csrf_token %}
+    {% csrf_token %}
+    
+    <label for="worker">Pracownik:</label><br>
+    <input type="text" id="worker" name="worker"><br>
 
-<label for="project_name">Nazwa projektu:</label><br>
-<input type="text" id="project_name" name="project_name"><br>
+    <label for="patient">Pacjent:</label><br>
+    <input type="text" id="patient" name="patient"><br>
 
-<label for="team_leader">Kierownik projektu:</label><br>
-<input type="text" id="team_leader" name="team_leader"><br>
+    <label for="experiment_name">Nazwa eksperymentu:</label><br>
+    <input type="text" id="experiment_name" name="experiment_name"><br>
 
-<label for="description">Opis projektu:</label><br>
-<input type="text" id="description" name="description"><br>
+    <label for="description">Opis:</label><br>
+    <input type="text" id="description" name="description"><br>
 
-<input type="submit" value="Dodaj projekt">
+    <label for="method">Metoda:</label><br>
+    <input type="text" id="method" name="method"><br>
+
+    <input type="submit" value="Zapisz badanie">
 </form>
+
+<footer>
+    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
 </body>
 </html>

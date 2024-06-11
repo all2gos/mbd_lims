@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project
+from .models import *
 
 class ProjectsForm(forms.ModelForm):
     class Meta:
@@ -9,4 +9,10 @@ class ProjectsForm(forms.ModelForm):
 class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class ExperimentForm(forms.ModelForm):
+    class Meta:
+        model = Experiment
+        fields = '__all__'
 
