@@ -116,5 +116,20 @@ def logout_view(request):
     logout(request)
     return redirect('/home')  # przekierowanie na stronę domową po wylogowaniu
 
+def checking(request):
+     return render(request, 'checking.html')
+
+def search_entries(request):
+    if request.method == 'POST':
+        form = EntryForm(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            entries = Experiment.objects.filter(experiment_name__exact=text)
+            return render(request, 'search_result.html', {'entries': entries})
+    else:
+        form = EntryForm()
+    return render(request, 'search_entries.html', {'form': form})
 
 
+def search_result(request):
+    return render(request, 'search_result.html')

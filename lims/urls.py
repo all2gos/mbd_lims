@@ -20,7 +20,7 @@ from projekty.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('home/', welcome, name='Welcome'),
+	path('home/', welcome, name='welcome'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('projects_home/', projects_home, name='projects'),
@@ -35,6 +35,10 @@ urlpatterns = [
     path('about_us', about_us, name='about_us'),
     path('add_project/', add_project, name='add_project'),
     path('badania/',badania, name='badania'),
-    path('add_patient/',add_patient, name='add_patient')
+    path('add_patient/',add_patient, name='add_patient'),
+    path('checking/',checking, name='checking'),
+    path('info/',welcome, name='info'),
+    path('search_entries/',search_entries, name='search_entries'),
+    path('search_result/',search_result, name='search_result')
 
 ]

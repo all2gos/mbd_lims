@@ -24,14 +24,18 @@ class Employee(models.Model):
    team = models.ManyToManyField(Project)
 
 class Patient(models.Model):
+   SEX_CHOICES = [
+        ('M', 'Mężczyzna'),
+        ('K', 'Kobieta'),
+    ]
+       
    full_name=models.CharField(max_length=40, null=True)
    PESEL=models.CharField(max_length=11, null=True)
    birth_name=models.CharField(max_length=40, null=True)
    adres=models.CharField(max_length=100, null=True)
    mail=models.CharField(max_length=30, null=True)
-   status=models.CharField(max_length=20, null=True)
    diagnosis=models.CharField(max_length=40, null=True)
-   sex=models.CharField(max_length=10, null=True)
+   sex=models.CharField(max_length=1, choices=SEX_CHOICES, null=True)
 
 class Method(models.Model):
    name=models.CharField(max_length=40)
@@ -63,3 +67,6 @@ class KeyWord(models.Model):
      
 class Diagnosis(models.Model):
    icd_10=models.CharField(max_length=5)
+
+class Entry(models.Model):
+    text = models.CharField(max_length=200)

@@ -23,27 +23,27 @@
 <form action="/submit_medical_test/" method="post">
     {% csrf_token %}
     
-    <label for="worker">Pracownik:</label><br>
+    <label for="worker">Pracownik:</label>
     <select id="worker" name="worker">
         {% for entry in workers %}
             <option value="{{ entry.id }}">{{ entry.full_name }}</option>
         {% endfor %}
     </select><br>
 
-    <label for="patient">Pacjent:</label><br>
+    <label for="patient">Pacjent:</label>
     <select id="patient" name="patient">
         {% for entry in patients %}
             <option value="{{ entry.id }}">{{ entry.full_name }}</option>
         {% endfor %}
     </select><br>
 
-    <label for="experiment_name">Nazwa eksperymentu:</label><br>
+    <label for="experiment_name">Indywidualny numer badania:</label>
     <input type="text" id="experiment_name" name="experiment_name"><br>
 
-    <label for="description">Opis:</label><br>
+    <label for="description">Wynik badania:</label>
     <input type="text" id="description" name="description"><br>
 
-    <label for="method">Metoda:</label><br>
+    <label for="method">Metoda:</label>
     <select id="method" name="method">
         {% for entry in methods %}
             <option value="{{ entry.id }}">{{entry.name}}</option>

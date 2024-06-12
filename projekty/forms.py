@@ -19,3 +19,9 @@ class PatientForm(forms.ModelForm):
     class Meta:
         model = Patient
         fields = '__all__'
+        widgets = {
+            'sex': forms.RadioSelect(choices=Patient.SEX_CHOICES),
+        }
+
+class EntryForm(forms.Form):
+    text = forms.CharField(max_length=200)

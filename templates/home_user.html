@@ -16,16 +16,12 @@
 <div class="centering">
 <h1>Wykaz projektów</h1>
 
-Dzień dobry {{ user.first_name }}.Co chcesz zrobić?
+<p style="color: #3e26ac;">Dzień dobry {{ user.first_name }}. Co chcesz zrobić?</p>
 
 <br>
-
 <a href="{% url 'projects' %}"><button, class="button-modern">Wyświetl listę projektów</button></a>
-
 <a href="{% url 'employes' %}"><button, class="button-modern">Wyświetl listę pracowników</button></a>
-
 <a href="{% url 'badania' %}"><button, class="button-modern">Wyświetl listę badań</button></a>
-
 <br><br>
 <a href="{% url 'add_medical_test' %}"><button, class="button-modern">Wprowadź wyniki badania</button></a>
 

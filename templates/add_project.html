@@ -27,7 +27,7 @@
 <label for="team_leader">Kierownik projektu:</label><br>
 <select id="team_leader" name="team_leader">
     {% for leader in team_leaders %}
-        <option value="{{ leader.id }}">{{ leader.full_name }}</option>
+        <option value="{{ leader.full_name}}">{{ leader.full_name }}</option>
     {% endfor %}
 </select><br>
 

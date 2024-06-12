@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+    <header>
+        <a href="{% url 'welcome' %}" class="site-name">LIMS</a>
+    </header>
+<br>
+<br>
+Wyniki badania:
+    <ul>
+        {% for entry in entries %}
+            Numer badania: {{entry.experiment_name}} 
+            <li>Laborant:{{ entry.worker.full_name}} 
+            <li>Pacjent: {{entry.patient.full_name}} 
+            <li>Diagnoza:{{entry.description}}
+        {% endfor %}
+    </ul>
+    <footer>
+        Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+        </footer>
+</body>
+</html>

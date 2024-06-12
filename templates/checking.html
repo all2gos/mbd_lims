@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+<header>
+    <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+</header>
+    <div, class="centering">
+
+<br>
+<h1>
+    Wprowadź swój numer badania </h1>
+    <form action="/search_entries/" method="post">
+    {% csrf_token %}
+
+    <label for="text">Wpisz tutaj indywidualny numer badania:</label>
+    <input type="text" id="text" name="text"><br>
+
+    <input type="submit" value="Wyświetl badanie", class="button-modern">
+
+    </form>
+
+</div>
+<footer>
+    Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
+</body>
+</html>
