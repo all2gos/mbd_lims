@@ -25,7 +25,11 @@
 <input type="text" id="project_name" name="project_name"><br>
 
 <label for="team_leader">Kierownik projektu:</label><br>
-<input type="text" id="team_leader" name="team_leader"><br>
+<select id="team_leader" name="team_leader">
+    {% for leader in team_leaders %}
+        <option value="{{ leader.id }}">{{ leader.full_name }}</option>
+    {% endfor %}
+</select><br>
 
 <label for="description">Opis projektu:</label><br>
 <input type="text" id="description" name="description"><br>
@@ -33,7 +37,7 @@
 <input type="submit" value="Dodaj projekt", class="button-modern">
 </form>
 <footer>
-    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
     </footer>
 </body>
 </html>

@@ -38,13 +38,21 @@ def projects_home(request):
 	
 	return render(request, 'projects_home.html',{'c':c, 'l':l})
 
-@user_passes_test(check_is_kierownik)
+@user_passes_test(check_is_kierownik,login_url='/home_user/')
 def add_project(request):
-	return render(request, 'add_project.html')
+    team_leaders = Employee.objects.all()
+    return render(request, 'add_project.html',{'team_leaders': team_leaders})
 
 @login_required
 def add_medical_test(request):
-	return render(request, 'add_medical_test.html')
+    workers = Employee.objects.all()
+    patients = Patient.objects.all()
+    methods = Method.objects.all()
+    return render(request, 'add_medical_test.html', {'workers':workers, 'patients':patients, 'methods':methods})
+
+@login_required
+def add_patient(request):
+     return render(request, 'add_patient.html')
 
 @login_required
 def home_user(request):
@@ -59,7 +67,7 @@ def submit_project(request):
 		return redirect('projects')
 	else:
 		form = ProjectsForm()
-	return render(request, 'submit_project.html', {'form':form})
+	return render(request, 'submit.html', {'form':form})
 
 @login_required
 def submit_medical_test(request):
@@ -67,12 +75,23 @@ def submit_medical_test(request):
         form = ExperimentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('projects')
+            return redirect('badania')
     else:
         form = ExperimentForm()
         
-    return render(request, 'submit_project.html', {'form': form})
+    return render(request, 'submit.html', {'form': form})
 
+@login_required
+def submit_patient(request):
+    if request.method == 'POST':
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home_user')
+    else:
+        form = PatientForm()
+        
+    return render(request, 'submit.html', {'form': form})
 
 def about_us(request):
       return render(request, 'about_us.html')
@@ -96,4 +115,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/home')  # przekierowanie na stronę domową po wylogowaniu
+
+
 

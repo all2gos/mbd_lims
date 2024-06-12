@@ -20,14 +20,22 @@
     Raport z przeprowadzenia badania
 </h1>
 
-<form action="/submit_project/" method="post">
+<form action="/submit_medical_test/" method="post">
     {% csrf_token %}
     
     <label for="worker">Pracownik:</label><br>
-    <input type="text" id="worker" name="worker"><br>
+    <select id="worker" name="worker">
+        {% for entry in workers %}
+            <option value="{{ entry.id }}">{{ entry.full_name }}</option>
+        {% endfor %}
+    </select><br>
 
     <label for="patient">Pacjent:</label><br>
-    <input type="text" id="patient" name="patient"><br>
+    <select id="patient" name="patient">
+        {% for entry in patients %}
+            <option value="{{ entry.id }}">{{ entry.full_name }}</option>
+        {% endfor %}
+    </select><br>
 
     <label for="experiment_name">Nazwa eksperymentu:</label><br>
     <input type="text" id="experiment_name" name="experiment_name"><br>
@@ -36,13 +44,17 @@
     <input type="text" id="description" name="description"><br>
 
     <label for="method">Metoda:</label><br>
-    <input type="text" id="method" name="method"><br>
+    <select id="method" name="method">
+        {% for entry in methods %}
+            <option value="{{ entry.id }}">{{entry.name}}</option>
+        {% endfor %}
+    </select><br>
 
-    <input type="submit" value="Zapisz badanie">
+    <input type="submit" value="Zapisz badanie", class="button-modern">
 </form>
 
 <footer>
-    Made by <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
     </footer>
 </body>
 </html>

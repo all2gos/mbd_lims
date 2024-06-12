@@ -8,14 +8,14 @@ body {
 }
 
 h1 {
-  color: #3e26ac; /* Wybierz kolor według preferencji */
+  color: #3e26ac; 
 }
 
 /* Centering content */
 .centering {
   text-align: center;
   width: 100%;
-  max-width: 1920px; /* Adjust as needed */
+  max-width: 1920px; 
   padding: 20px;
 }
 

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+<meta charset="UTF-8">
+<title> LIMS </title>
+<link rel="stylesheet" href="{% static 'all_styles.css' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+
+</head>
+<body>
+    <header>
+        <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
+    </header>
+<br>
+<h1>
+    Formularz wpisania nowego pacjenta
+</h1>
+
+<form action="/submit_patient/" method="post">
+{% csrf_token %}
+
+<label for="full_name">Imię i nazwisko pacjenta:</label><br>
+<input type="text" id="full_name" name="full_name"><br>
+
+<label for="PESEL">PESEL:</label><br>
+<input type="text" id="PESEL" name="PESEL"><br>
+
+<label for="birth_name">Data urodzenia:</label><br>
+<input type="text" id="birth_name" name="birth_name"><br>
+
+<label for="adres">Adres zamieszkania:</label><br>
+<input type="text" id="adres" name="adres"><br>
+
+<label for="mail">Adres mailowy:</label><br>
+<input type="text" id="mail" name="mail"><br>
+
+<label for="sex">Płeć:</label><br>
+<input type="text" id="sex" name="sex"><br>
+
+<label for="status">Status:</label><br>
+<input type="text" id="status" name="status"><br>
+
+<label for="diagnosis">Diagnoza:</label><br>
+<input type="text" id="diagnosis" name="diagnosis"><br>
+
+<input type="submit" value="Wpisz pacjenta", class="button-modern">
+</form>
+<footer>
+    Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    </footer>
+</body>
+</html>
+

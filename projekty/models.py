@@ -24,14 +24,14 @@ class Employee(models.Model):
    team = models.ManyToManyField(Project)
 
 class Patient(models.Model):
-   full_name=models.CharField(max_length=40)
-   PESEL=models.CharField(max_length=11)
-   birth_name=models.CharField(max_length=40)
-   adres=models.CharField(max_length=100)
-   mail=models.CharField(max_length=30)
-   status=models.CharField(max_length=20)
-   diagnosis=models.CharField(max_length=40)
-   sex=models.CharField(max_length=10)
+   full_name=models.CharField(max_length=40, null=True)
+   PESEL=models.CharField(max_length=11, null=True)
+   birth_name=models.CharField(max_length=40, null=True)
+   adres=models.CharField(max_length=100, null=True)
+   mail=models.CharField(max_length=30, null=True)
+   status=models.CharField(max_length=20, null=True)
+   diagnosis=models.CharField(max_length=40, null=True)
+   sex=models.CharField(max_length=10, null=True)
 
 class Method(models.Model):
    name=models.CharField(max_length=40)
