@@ -96,6 +96,8 @@ def submit_patient(request):
 def about_us(request):
       return render(request, 'about_us.html')
 
+def info(request):
+     return render(request, 'project_description.html')
 def login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)

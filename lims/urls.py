@@ -37,7 +37,7 @@ urlpatterns = [
     path('badania/',badania, name='badania'),
     path('add_patient/',add_patient, name='add_patient'),
     path('checking/',checking, name='checking'),
-    path('info/',welcome, name='info'),
+    path('info/',info, name='info'),
     path('search_entries/',search_entries, name='search_entries'),
     path('search_result/',search_result, name='search_result')
 
