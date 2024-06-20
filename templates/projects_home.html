@@ -3,33 +3,39 @@
 <html lang='en'>
 
 <head>
-<meta charset="UTF-8">
-<title> LIMS </title>
-<link rel="stylesheet" href="{% static 'all_styles.css' %}">
-<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
-
+    <meta charset="UTF-8">
+    <title>LIMS</title>
+    <link rel="stylesheet" href="{% static 'all_styles.css' %}">
+    <link rel="shortcut icon" type="image/png' href="{% static 'favicon.png' %}">
 </head>
+
 <body>
     <header>
         <a href="{% url 'home_user' %}" class="site-name">LIMS</a>
     </header>
-<br>
-<h1>Wykaz projektów
-</h1>
-Liczba projektów: {{c}} <br>
-<br>
-Nazwy projektów: <br>
-<ul>
-{%for obj in l%}
-<li><a href="{% url 'project_detail' obj.id %}">{{ obj.project_name }}</a> (kierownik: {{ obj.team_leader }})</li>
-{%endfor %}
+    <br>
+    <h1>Wykaz projektów</h1>
+    Liczba projektów: {{ c }} <br>
+    <br>
+    <form action="{% url 'filter_projects' %}" method="get">
+        <button type="submit" class="button-modern">Pokaż tylko projekty, którymi kieruję</button>
+    </form>
+    <br>
+    Nazwy projektów: <br>
+    <ul>
+        {% for obj in l %}
+        <li><a href="{% url 'project_detail' obj.id %}">{{ obj.project_name }}</a> (kierownik: {{ obj.team_leader }})</li>
+        {% endfor %}
+    </ul>
 
-<br><br><br><br>
-<a href="{% url 'add_project' %}"><button, class="button-modern">Dodaj nowy projekt</button></a>
+    <br><br><br><br>
+    <a href="{% url 'add_project' %}">
+        <button class="button-modern">Dodaj nowy projekt</button>
+    </a>
 
-</body>
-<footer>
-    Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
+    <footer>
+        Made with <span>&#10084;</span> by Rafał Stottko, Karolina Sekutowicz & Iwona Koprek
     </footer>
-</html>
+</body>
 
+</html>

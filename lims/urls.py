@@ -39,6 +39,9 @@ urlpatterns = [
     path('checking/',checking, name='checking'),
     path('info/',info, name='info'),
     path('search_entries/',search_entries, name='search_entries'),
-    path('search_result/',search_result, name='search_result')
+    path('search_result/',search_result, name='search_result'),
+    path('modify_result/<int:id>', modify_result, name='modify_result'),
+    path('projects/filter/', filter_projects, name='filter_projects'), 
+
 
 ]

@@ -23,6 +23,9 @@ class Employee(models.Model):
    telephone_number=models.CharField(max_length=12, null=True)
    team = models.ManyToManyField(Project)
 
+   def __str__(self):
+      return f"{self.full_name}"
+
 class Patient(models.Model):
    SEX_CHOICES = [
         ('M', 'Mężczyzna'),
@@ -37,9 +40,14 @@ class Patient(models.Model):
    diagnosis=models.CharField(max_length=40, null=True)
    sex=models.CharField(max_length=1, choices=SEX_CHOICES, null=True)
 
+   def __str__(self):
+      return f"{self.full_name}"
 class Method(models.Model):
    name=models.CharField(max_length=40)
    description=models.CharField(max_length=40)
+
+   def __str__(self):
+      return f"{self.name}"
 
 #pojedyncze badanie medyczne
 class Experiment(models.Model):

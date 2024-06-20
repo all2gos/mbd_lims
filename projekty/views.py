@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages  
 from django.contrib.auth.decorators import user_passes_test
@@ -135,3 +135,35 @@ def search_entries(request):
 
 def search_result(request):
     return render(request, 'search_result.html')
+
+def modify_result(request, id):
+
+    experiment = get_object_or_404(Experiment, id=id)
+        
+    if request.method == 'POST':
+        form = ExperimentForm(request.POST, instance=experiment)
+        if form.is_valid():
+            form.save()
+            if 'delete' in request.POST:  
+                experiment.delete()
+                return redirect('badania')  
+            else:
+                return redirect('badania') 
+    else:
+        form = ExperimentForm(instance=experiment)
+    
+    context = {
+        'form': form,
+        'experiment': experiment,
+    }
+    return render(request, 'modify_result.html', context)
+
+def filter_projects(request):
+    
+    user_projects = Project.objects.filter(team_leader=f'{request.user.first_name} {request.user.last_name}')
+
+    context = {
+        'l': user_projects,
+        'c': user_projects.count(),  
+    }
+    return render(request, 'projects_home.html', context)

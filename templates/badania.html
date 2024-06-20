@@ -19,6 +19,7 @@
     </header>
     <br>
     <h1>Lista przeprowadzonych badań</h1>
+    (Aby zaktualizować lub usunąć wpis kliknij w dowolny napis, w wierszu, w którym chcesz dokonać zmian) <br>
     <table class="table-modern">
         <thead>
             <tr>
@@ -33,11 +34,11 @@
         <tbody>
             {% for obj in l %}
                 <tr>
-                    <td>{{ obj.worker.full_name }}</td>
-                    <td>{{ obj.patient.full_name }}</td>
-                    <td>{{ obj.experiment_name }}</td>
-                    <td>{{ obj.description }}</td>
-                    <td>{{ obj.method.name }}</td>
+                    <td><a href="{% url 'modify_result' obj.id %}" style="text-decoration: none; color: inherit;">{{ obj.worker.full_name }}</a></td>
+                    <td><a href="{% url 'modify_result' obj.id %}" style="text-decoration: none; color: inherit;">{{ obj.patient.full_name }}</a></td>
+                    <td><a href="{% url 'modify_result' obj.id %}" style="text-decoration: none; color: inherit;">{{ obj.experiment_name }}</a></td>
+                    <td><a href="{% url 'modify_result' obj.id %}" style="text-decoration: none; color: inherit;">{{ obj.description }}</a></td>
+                    <td><a href="{% url 'modify_result' obj.id %}" style="text-decoration: none; color: inherit;">{{ obj.method.name }}</a></td>
 
 
 
